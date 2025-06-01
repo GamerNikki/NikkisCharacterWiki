@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Character Page Builder | Nikki's Wiki</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    form {
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    form label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    #preview {
+      border: 2px dashed #888;
+      padding: 1rem;
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Nikki's Wiki</h2>
+    <ul>
+      <li><a href="index.html#intro">Back to Wiki</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Character Page Builder</h1>
+    <form id="charForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required />
+
+      <label for="age">Age</label>
+      <input type="text" id="age" />
+
+      <label for="role">Role</label>
+      <input type="text" id="role" />
+
+      <label for="created">Created Using</label>
+      <input type="text" id="created" />
+
+      <label for="first">First Appearance</label>
+      <input type="text" id="first" />
+
+      <label for="img">Image URL</label>
+      <input type="url" id="img" placeholder="https://example.com/image.png" />
+
+      <label for="bio">Bio (paragraphs)</label>
+      <textarea id="bio" rows="5" placeholder="Write short character bio..."></textarea>
+
+      <button type="submit">Generate Character Page</button>
+    </form>
+
+    <h2>Preview</h2>
+    <div id="preview"></div>
+  </main>
+
+  <script>
+    document.getElementById("charForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const role = document.getElementById("role").value;
+      const created = document.getElementById("created").value;
+      const first = document.getElementById("first").value;
+      const img = document.getElementById("img").value;
+      const bio = document.getElementById("bio").value.trim();
+
+      const bioParagraphs = bio
+        .split(/\n+/)
+        .map((p) => `<p>${p}</p>`)
+        .join("\n");
+
+      const html = `
+        <h1>${name}</h1>
+        <div class="infobox">
+          <img src="${img}" alt="${name} Portrait" />
+          <table>
+            <tr><th>Full Name</th><td>${name}</td></tr>
+            <tr><th>Age</th><td>${age}</td></tr>
+            <tr><th>Role</th><td>${role}</td></tr>
+            <tr><th>Created using</th><td>${created}</td></tr>
+            <tr><th>First Appearance</th><td>${first}</td></tr>
+          </table>
+        </div>
+        ${bioParagraphs}
+      `;
+
+      document.getElementById("preview").innerHTML = html;
+    });
+  </script>
+</body>
+</html>
