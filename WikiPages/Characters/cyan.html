@@ -1,16 +1,71 @@
-<!-- cyan.html content -->
-<h1>Cyan</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyan | Nikki's Wiki</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
 
-<div class="infobox">
-  <img src="https://cdn.glitch.global/e93f51e9-0c13-4cfa-a41d-0ab685e0c9d6/cyan.svg?v=1748392280698" alt="Cyan Portrait" />
-  <table>
-    <tr><th>Full Name</th><td>Cyan</td></tr>
-    <tr><th>Age</th><td>15 or sum shit</td></tr>
-    <tr><th>Role</th><td>unknown</td></tr>
-    <tr><th>Created using</th><td>Microsoft Paint3D</td></tr>
-    <tr><th>First Apperance</th><td>Dave and bambi TX edition</td></tr>
-  </table>
-</div>
+  <body>
+    <nav>
+      <h2>Nikki's Wiki</h2>
+      <ul>
+        <li><a href="../../index.html#intro">Introduction</a></li>
+        <li onclick="toggleDropdown(this)" class="dropdown">
+          <strong>WikiPages</strong>
+          <ul class="dropdown-content">
+            <li onclick="toggleDropdown(event.currentTarget)" class="dropdown">
+              <strong>Characters</strong>
+              <ul class="dropdown-content">
+                <li><a href="cyan.html">Cyan</a></li>
+                <li><a href="ashi.html">Ashi</a></li>
+                <li><a href="sammy.html">Sammy</a></li>
+                <li><a href="circ.html">Circ</a></li>
+              </ul>
+            </li>
+            <li onclick="toggleDropdown(event.currentTarget)" class="dropdown">
+              <strong>Projects</strong>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="../Projects/CyansIncrediboxMod.html">Incredibox cyans multiversal shenanagens</a>
+                </li>
+                <li>
+                  <a href="../Projects/Omoritest.html">OMORI test</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
 
-<p>Cyan was the first of the trio</p>
-<p>He was first made along with ashi and circ</p>
+    <main id="content">
+      <h1>Cyan</h1>
+
+      <div class="infobox">
+        <img
+          src="https://cdn.glitch.global/e93f51e9-0c13-4cfa-a41d-0ab685e0c9d6/cyan.svg?v=1748392280698"
+          alt="Cyan Portrait"
+        />
+        <table>
+          <tr><th>Full Name</th><td>Cyan</td></tr>
+          <tr><th>Age</th><td>15 or sum shit</td></tr>
+          <tr><th>Role</th><td>unknown</td></tr>
+          <tr><th>Created using</th><td>Microsoft Paint3D</td></tr>
+          <tr><th>First Appearance</th><td>Dave and bambi TX edition</td></tr>
+        </table>
+      </div>
+
+      <p>Cyan was the first of the trio.</p>
+      <p>He was first made along with Ashi and Circ.</p>
+    </main>
+
+    <script>
+      function toggleDropdown(element) {
+        element.classList.toggle("open");
+        event.stopPropagation();
+      }
+    </script>
+  </body>
+</html>
