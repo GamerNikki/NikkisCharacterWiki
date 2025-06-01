@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Wiki Page - Nikki's Wiki</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      max-width: 800px;
+    }
+    h1 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 2rem;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 1rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Create a New Wiki Page</h1>
+
+  <form id="createForm" onsubmit="createPage(event)">
+    <label for="title">Page Title</label>
+    <input type="text" id="title" required />
+
+    <label for="content">Page Content (HTML allowed)</label>
+    <textarea id="content" rows="10" required></textarea>
+
+    <button type="submit">Generate Page</button>
+  </form>
+
+  <div id="output">
+    <h2>Generated HTML</h2>
+    <pre id="resultCode"></pre>
+  </div>
+
+  <script>
+    function createPage(event) {
+      event.preventDefault();
+
+      const title = document.getElementById('title').value.trim();
+      const content = document.getElementById('content').value.trim();
+
+      const pageHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>${title}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; max-width: 800px; }
+    h1 { border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>${title}</h1>
+  ${content}
+</body>
+</html>
+      `.trim();
+
+      document.getElementById('resultCode').textContent = pageHTML;
+    }
+  </script>
+
+</body>
+</html>
